@@ -1,0 +1,575 @@
+2026-05-04 17:41:19 - METHOD: POST - URI: /Mini-Url-Shortener-API/public/api/shorten?Content-Type=application/json&Authorization=Bearer%20test_token_12345 - PATH: /Mini-Url-Shortener-API/public/api/shorten
+2026-05-04 17:44:55 - METHOD: POST - URI: /Mini-Url-Shortener-API/public/api/shorten - PATH: /Mini-Url-Shortener-API/public/api/shorten
+2026-05-04 17:49:45 - METHOD: POST - URI: /Mini-Url-Shortener-API/public/api/shorten - PATH: /Mini-Url-Shortener-API/public/api/shorten
+2026-05-04 17:52:13 - METHOD: POST - URI: /Mini-Url-Shortener-API/public/api/shorten - PATH: /Mini-Url-Shortener-API/public/api/shorten
+2026-05-04 17:54:54 - METHOD: POST - URI: /Mini-Url-Shortener-API/public/api/shorten - PATH: /Mini-Url-Shortener-API/public/api/shorten
+Dispatching: GET /Mini-Url-Shortener-API/public/
+Available routes: Array
+(
+    [0] => Array
+        (
+            [method] => POST
+            [path] => /api/shorten
+            [controller] => App\Controllers\UrlController
+            [action] => shorten
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                    [1] => App\Middleware\RateLimitMiddleware
+                )
+
+        )
+
+    [1] => Array
+        (
+            [method] => GET
+            [path] => /api/urls
+            [controller] => App\Controllers\UrlController
+            [action] => list
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                )
+
+        )
+
+    [2] => Array
+        (
+            [method] => GET
+            [path] => /api/urls/{shortCode}
+            [controller] => App\Controllers\UrlController
+            [action] => show
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                )
+
+        )
+
+    [3] => Array
+        (
+            [method] => GET
+            [path] => /{shortCode}
+            [controller] => App\Controllers\RedirectController
+            [action] => redirect
+            [middlewares] => Array
+                (
+                )
+
+        )
+
+)
+
+Dispatching: POST /Mini-Url-Shortener-API/public/api/shorten
+Available routes: Array
+(
+    [0] => Array
+        (
+            [method] => POST
+            [path] => /api/shorten
+            [controller] => App\Controllers\UrlController
+            [action] => shorten
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                    [1] => App\Middleware\RateLimitMiddleware
+                )
+
+        )
+
+    [1] => Array
+        (
+            [method] => GET
+            [path] => /api/urls
+            [controller] => App\Controllers\UrlController
+            [action] => list
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                )
+
+        )
+
+    [2] => Array
+        (
+            [method] => GET
+            [path] => /api/urls/{shortCode}
+            [controller] => App\Controllers\UrlController
+            [action] => show
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                )
+
+        )
+
+    [3] => Array
+        (
+            [method] => GET
+            [path] => /{shortCode}
+            [controller] => App\Controllers\RedirectController
+            [action] => redirect
+            [middlewares] => Array
+                (
+                )
+
+        )
+
+)
+
+Dispatching: GET /Mini-Url-Shortener-API/public/test
+Available routes: Array
+(
+    [0] => Array
+        (
+            [method] => POST
+            [path] => /api/shorten
+            [controller] => App\Controllers\UrlController
+            [action] => shorten
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                    [1] => App\Middleware\RateLimitMiddleware
+                )
+
+        )
+
+    [1] => Array
+        (
+            [method] => GET
+            [path] => /api/urls
+            [controller] => App\Controllers\UrlController
+            [action] => list
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                )
+
+        )
+
+    [2] => Array
+        (
+            [method] => GET
+            [path] => /api/urls/{shortCode}
+            [controller] => App\Controllers\UrlController
+            [action] => show
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                )
+
+        )
+
+    [3] => Array
+        (
+            [method] => GET
+            [path] => /{shortCode}
+            [controller] => App\Controllers\RedirectController
+            [action] => redirect
+            [middlewares] => Array
+                (
+                )
+
+        )
+
+)
+
+Dispatching: POST /api/shorten
+Available routes: Array
+(
+    [0] => Array
+        (
+            [method] => POST
+            [path] => /api/shorten
+            [controller] => App\Controllers\UrlController
+            [action] => shorten
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                    [1] => App\Middleware\RateLimitMiddleware
+                )
+
+        )
+
+    [1] => Array
+        (
+            [method] => GET
+            [path] => /api/urls
+            [controller] => App\Controllers\UrlController
+            [action] => list
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                )
+
+        )
+
+    [2] => Array
+        (
+            [method] => GET
+            [path] => /api/urls/{shortCode}
+            [controller] => App\Controllers\UrlController
+            [action] => show
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                )
+
+        )
+
+    [3] => Array
+        (
+            [method] => GET
+            [path] => /{shortCode}
+            [controller] => App\Controllers\RedirectController
+            [action] => redirect
+            [middlewares] => Array
+                (
+                )
+
+        )
+
+)
+
+Dispatching: POST /api/shorten
+Available routes: Array
+(
+    [0] => Array
+        (
+            [method] => POST
+            [path] => /api/shorten
+            [controller] => App\Controllers\UrlController
+            [action] => shorten
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                    [1] => App\Middleware\RateLimitMiddleware
+                )
+
+        )
+
+    [1] => Array
+        (
+            [method] => GET
+            [path] => /api/urls
+            [controller] => App\Controllers\UrlController
+            [action] => list
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                )
+
+        )
+
+    [2] => Array
+        (
+            [method] => GET
+            [path] => /api/urls/{shortCode}
+            [controller] => App\Controllers\UrlController
+            [action] => show
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                )
+
+        )
+
+    [3] => Array
+        (
+            [method] => GET
+            [path] => /{shortCode}
+            [controller] => App\Controllers\RedirectController
+            [action] => redirect
+            [middlewares] => Array
+                (
+                )
+
+        )
+
+)
+
+Dispatching: POST /api/shorten
+Available routes: Array
+(
+    [0] => Array
+        (
+            [method] => POST
+            [path] => /api/shorten
+            [controller] => App\Controllers\UrlController
+            [action] => shorten
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                    [1] => App\Middleware\RateLimitMiddleware
+                )
+
+        )
+
+    [1] => Array
+        (
+            [method] => GET
+            [path] => /api/urls
+            [controller] => App\Controllers\UrlController
+            [action] => list
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                )
+
+        )
+
+    [2] => Array
+        (
+            [method] => GET
+            [path] => /api/urls/{shortCode}
+            [controller] => App\Controllers\UrlController
+            [action] => show
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                )
+
+        )
+
+    [3] => Array
+        (
+            [method] => GET
+            [path] => /{shortCode}
+            [controller] => App\Controllers\RedirectController
+            [action] => redirect
+            [middlewares] => Array
+                (
+                )
+
+        )
+
+)
+
+Dispatching: POST /api/shorten
+Available routes: Array
+(
+    [0] => Array
+        (
+            [method] => POST
+            [path] => /api/shorten
+            [controller] => App\Controllers\UrlController
+            [action] => shorten
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                    [1] => App\Middleware\RateLimitMiddleware
+                )
+
+        )
+
+    [1] => Array
+        (
+            [method] => GET
+            [path] => /api/urls
+            [controller] => App\Controllers\UrlController
+            [action] => list
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                )
+
+        )
+
+    [2] => Array
+        (
+            [method] => GET
+            [path] => /api/urls/{shortCode}
+            [controller] => App\Controllers\UrlController
+            [action] => show
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                )
+
+        )
+
+    [3] => Array
+        (
+            [method] => GET
+            [path] => /{shortCode}
+            [controller] => App\Controllers\RedirectController
+            [action] => redirect
+            [middlewares] => Array
+                (
+                )
+
+        )
+
+)
+
+Dispatching: POST /api/shorten
+Available routes: Array
+(
+    [0] => Array
+        (
+            [method] => POST
+            [path] => /api/shorten
+            [controller] => App\Controllers\UrlController
+            [action] => shorten
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                    [1] => App\Middleware\RateLimitMiddleware
+                )
+
+        )
+
+    [1] => Array
+        (
+            [method] => GET
+            [path] => /api/urls
+            [controller] => App\Controllers\UrlController
+            [action] => list
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                )
+
+        )
+
+    [2] => Array
+        (
+            [method] => GET
+            [path] => /api/urls/{shortCode}
+            [controller] => App\Controllers\UrlController
+            [action] => show
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                )
+
+        )
+
+    [3] => Array
+        (
+            [method] => GET
+            [path] => /{shortCode}
+            [controller] => App\Controllers\RedirectController
+            [action] => redirect
+            [middlewares] => Array
+                (
+                )
+
+        )
+
+)
+
+Dispatching: POST /api/shorten
+Available routes: Array
+(
+    [0] => Array
+        (
+            [method] => POST
+            [path] => /api/shorten
+            [controller] => App\Controllers\UrlController
+            [action] => shorten
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                    [1] => App\Middleware\RateLimitMiddleware
+                )
+
+        )
+
+    [1] => Array
+        (
+            [method] => GET
+            [path] => /api/urls
+            [controller] => App\Controllers\UrlController
+            [action] => list
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                )
+
+        )
+
+    [2] => Array
+        (
+            [method] => GET
+            [path] => /api/urls/{shortCode}
+            [controller] => App\Controllers\UrlController
+            [action] => show
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                )
+
+        )
+
+    [3] => Array
+        (
+            [method] => GET
+            [path] => /{shortCode}
+            [controller] => App\Controllers\RedirectController
+            [action] => redirect
+            [middlewares] => Array
+                (
+                )
+
+        )
+
+)
+
+Dispatching: POST /api/shorten
+Available routes: Array
+(
+    [0] => Array
+        (
+            [method] => POST
+            [path] => /api/shorten
+            [controller] => App\Controllers\UrlController
+            [action] => shorten
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                    [1] => App\Middleware\RateLimitMiddleware
+                )
+
+        )
+
+    [1] => Array
+        (
+            [method] => GET
+            [path] => /api/urls
+            [controller] => App\Controllers\UrlController
+            [action] => list
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                )
+
+        )
+
+    [2] => Array
+        (
+            [method] => GET
+            [path] => /api/urls/{shortCode}
+            [controller] => App\Controllers\UrlController
+            [action] => show
+            [middlewares] => Array
+                (
+                    [0] => App\Middleware\AuthMiddleware
+                )
+
+        )
+
+    [3] => Array
+        (
+            [method] => GET
+            [path] => /{shortCode}
+            [controller] => App\Controllers\RedirectController
+            [action] => redirect
+            [middlewares] => Array
+                (
+                )
+
+        )
+
+)
+
