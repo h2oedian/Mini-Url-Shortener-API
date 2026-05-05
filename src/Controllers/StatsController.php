@@ -23,10 +23,10 @@ class StatsController
         $clickModel = new Click();
         $db = $clickModel->getConnection();
 
-        // 1. تعداد کل کلیک‌ها
+        //click count
         $totalClicks = $url['click_count'] ?? 0;
 
-        // 2. تعداد کلیک‌های یکتا (بر اساس IP)
+        // unique clicks base on ip
         $stmt = $db->prepare("
              SELECT COUNT(DISTINCT ip_address) as unique_clicks 
              FROM clicks 
@@ -35,7 +35,7 @@ class StatsController
         $stmt->execute(['url_id' => $url['id']]);
         $uniqueClicks = $stmt->fetch(PDO::FETCH_ASSOC)['unique_clicks'] ?? 0;
 
-        // 3. نمودار روزانه (30 روز گذشته)
+       //nemoodar roozane
         $stmt = $db->prepare("
             SELECT DATE(clicked_at) as date, COUNT(*) as count
             FROM clicks
@@ -47,7 +47,7 @@ class StatsController
         $stmt->execute(['url_id' => $url['id']]);
         $dailyChart = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // 4. پرمصرف‌ترین User Agent‌ها
+        //most use user agent
         $stmt = $db->prepare("
             SELECT user_agent, COUNT(*) as count
             FROM clicks

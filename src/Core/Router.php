@@ -44,7 +44,7 @@ class Router
             $pattern = $this->convertPathToRegex($route['path']);
 
             if (preg_match($pattern, $requestPath, $matches)) {
-                // اجرای middlewareها
+                //run middleware
                 foreach ($route['middleware'] as $middlewareClass) {
                     $middleware = new $middlewareClass();
                     if (!$middleware->handle($request)) {
@@ -52,31 +52,31 @@ class Router
                     }
                 }
 
-                // اجرای handler
+                // run handler
                 $handler = $route['handler'];
 
-                // پشتیبانی از فرمت آرایه‌ای [Controller::class, 'method']
+                // support [Controller::class, 'method']
                 if (is_array($handler) && count($handler) === 2) {
                     [$controllerClass, $method] = $handler;
                     $controller = new $controllerClass();
 
-                    array_shift($matches); // حذف full match
-                    array_unshift($matches, $request, $response); // اضافه کردن Request و Response
+                    array_shift($matches); // delete full match
+                    array_unshift($matches, $request, $response); // add Request and Response
 
                     call_user_func_array([$controller, $method], $matches);
                 }
-                // پشتیبانی از فرمت string 'Controller@method'
+                // support string 'Controller@method'
                 elseif (is_string($handler) && strpos($handler, '@') !== false) {
                     [$controllerName, $method] = explode('@', $handler);
                     $controllerClass = "App\\Controllers\\{$controllerName}";
                     $controller = new $controllerClass();
 
-                    array_shift($matches); // حذف full match
-                    array_unshift($matches, $request, $response); // اضافه کردن Request و Response
+                    array_shift($matches); // delete full match
+                    array_unshift($matches, $request, $response); //add Request and Response
 
                     call_user_func_array([$controller, $method], $matches);
                 }
-                // پشتیبانی از callable عادی
+                // support callable
                 elseif (is_callable($handler)) {
                     $handler($request, $response);
                 }

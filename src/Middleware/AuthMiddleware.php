@@ -26,7 +26,7 @@ class AuthMiddleware
             return false;
         }
 
-        // ذخیره user_id در Request
+        // save user_id in Request
         $request->setAttribute('user_id', $tokenData['user_id']);
         $request->setAttribute('token_data', $tokenData);
 

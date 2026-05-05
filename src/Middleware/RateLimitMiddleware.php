@@ -19,14 +19,14 @@ class RateLimitMiddleware
             $db = Database::getInstance();
             $pdo = $db->getConnection();
 
-            // پاک کردن رکوردهای قدیمی
+            //delete old
             $stmt = $pdo->prepare("
                 DELETE FROM rate_limits 
                 WHERE created_at < DATE_SUB(NOW(), INTERVAL :window SECOND)
             ");
             $stmt->execute(['window' => self::TIME_WINDOW]);
 
-            // شمارش درخواست‌های اخیر
+            // count
             $stmt = $pdo->prepare("
                 SELECT COUNT(*) as count 
                 FROM rate_limits 
@@ -43,7 +43,7 @@ class RateLimitMiddleware
                 return false;
             }
 
-            // ثبت درخواست جدید
+            // creat new request
             $stmt = $pdo->prepare("
                 INSERT INTO rate_limits (ip_address, created_at) 
                 VALUES (:ip, NOW())
@@ -53,7 +53,7 @@ class RateLimitMiddleware
             return true;
 
         } catch (\Exception $e) {
-            // در صورت خطا، اجازه ادامه بده (fail-open)
+            //if error keep going (fail-open)
             error_log("Rate limit error: " . $e->getMessage());
             return true;
         }

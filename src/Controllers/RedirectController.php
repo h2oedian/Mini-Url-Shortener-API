@@ -19,7 +19,7 @@ class RedirectController
             return;
         }
 
-        // ثبت آمار کلیک
+        // amar click
         $clickModel = new Click();
         $clickModel->record(
             $url['id'],
@@ -28,10 +28,8 @@ class RedirectController
             $request->getReferer()
         );
 
-        // افزایش شمارنده
         $urlModel->incrementClicks($url['id']);
 
-        // ریدایرکت
         (new Response())->redirect($url['original_url']);
     }
 }

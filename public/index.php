@@ -1,6 +1,6 @@
 <?php
 
-// Autoloader دستی PSR-4
+// Autoloader
 spl_autoload_register(function ($class) {
     $prefix = 'App\\';
     $baseDir = __DIR__ . '/../src/';
@@ -18,7 +18,7 @@ spl_autoload_register(function ($class) {
     }
 });
 
-// بارگذاری .env
+//  .env
 $envFile = __DIR__ . '/../.env';
 if (file_exists($envFile)) {
     $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -39,10 +39,8 @@ use App\Core\Database;
 // Initialize database
 Database::getInstance();
 
-// 🔧 ابتدا Router ساخته می‌شود
 $router = new Router();
 
-// 🔧 سپس فایل مسیرها روی همان $router بارگذاری می‌شود
 require_once __DIR__ . '/../routes/api.php';
 
 // Handle request

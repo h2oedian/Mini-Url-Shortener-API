@@ -29,17 +29,17 @@ class Request
     public function getPath(): string
     {
         $uri = $_SERVER['REQUEST_URI'];
-        // حذف query string (اگر وجود داشته باشد)
+        // delete query string
         if (($pos = strpos($uri, '?')) !== false) {
             $uri = substr($uri, 0, $pos);
         }
-        // حذف پیشوند '/Mini-Url-Shortener-API/public/' از URI
+        // delete prefix '/Mini-Url-Shortener-API/public/' from URI
         $publicPos = strpos($uri, 'public/');
         if ($publicPos !== false) {
-            $path = substr($uri, $publicPos + 7); // 7 = طول 'public/'
+            $path = substr($uri, $publicPos + 7); // 7 = length 'public/'
             return '/' . ltrim($path, '/');
         }
-        // اگر پیشوند 'public/' پیدا نشد، همان URI اصلی را برگردان
+        // if not prefix 'public/' give main URI
         return '/' . ltrim($uri, '/');
     }
 
@@ -64,7 +64,7 @@ class Request
 
     public function ip(): string
     {
-        // بررسی IP از پشت proxy
+        //check ip if proxy
         if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
             return $_SERVER['HTTP_CLIENT_IP'];
         } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {

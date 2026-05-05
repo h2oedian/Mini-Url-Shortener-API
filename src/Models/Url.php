@@ -17,7 +17,7 @@ class Url
     public function create(string $originalUrl, ?int $userId = null): array
     {
         try {
-            // شروع transaction
+            // start transaction
             $this->db->beginTransaction();
 
             $shortCode = $this->generateUniqueShortCode();
@@ -40,7 +40,7 @@ class Url
         } catch (\PDOException $e) {
             $this->db->rollBack();
 
-            // اگر خطای duplicate key بود، دوباره تلاش کن
+            //if error == duplicate key ->try again
             if ($e->getCode() == 23000) { // Duplicate entry
                 return $this->create($originalUrl, $userId);
             }
@@ -58,23 +58,23 @@ class Url
         for ($attempt = 0; $attempt < $maxAttempts; $attempt++) {
             $shortCode = '';
 
-            // تولید کد تصادفی
+            // make random code
             for ($i = 0; $i < $length; $i++) {
                 $shortCode .= $characters[random_int(0, $charactersLength - 1)];
             }
 
-            // چک تکراری
+            //check again
             if (!$this->shortCodeExists($shortCode)) {
                 return $shortCode;
             }
         }
 
-        // اگر بعد از 10 بار تکراری بود، طول رو یکی بیشتر کن
+        // if after 10 time-> repetitive -> +1 to length
         if ($length < 10) {
             return $this->generateUniqueShortCode($length + 1, $maxAttempts);
         }
 
-        // در صورت شکست کامل (بعید)
+        //fail(NO WAY)
         throw new \RuntimeException('Failed to generate unique short code after maximum attempts');
     }
 

@@ -14,32 +14,30 @@ class UrlController
         $data = $request->getBody();
         $url = $data['url'] ?? null;
 
-        // چک الزامی بودن
+
         if (!$url) {
             Response::json(['error' => 'URL is required'], 400);
             return;
         }
 
-        // چک طول URL
         if (strlen($url) > 2048) {
             Response::json(['error' => 'URL is too long (max 2048 characters)'], 400);
             return;
         }
 
-        // چک فرمت URL
         if (!filter_var($url, FILTER_VALIDATE_URL)) {
             Response::json(['error' => 'Invalid URL format'], 400);
             return;
         }
 
-        // چک پروتکل (فقط http/https)
+        //just(http/https)
         $parsedUrl = parse_url($url);
         if (!in_array($parsedUrl['scheme'] ?? '', ['http', 'https'])) {
             Response::json(['error' => 'Only HTTP/HTTPS URLs are allowed'], 400);
             return;
         }
 
-        // Blacklist دامنه‌های مشکوک (اختیاری)
+        // Blacklist
         $blacklistedDomains = ['localhost', '127.0.0.1', '0.0.0.0'];
         $host = $parsedUrl['host'] ?? '';
         if (in_array($host, $blacklistedDomains)) {
